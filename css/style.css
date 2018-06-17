@@ -1,0 +1,81 @@
+html, body, h1, h2, h3, h4 ,h5 , h6, p, a, ul, li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    color: #101010;
+    font-family: sans-serif;
+}
+
+* {   /* абсолютно всё */
+    outline: none;
+}
+
+/* conmponents */
+.btn {
+    font-size: 13px;
+    line-height: 1.6;
+    background-color: #101010;
+    color: #fff;
+    padding: 12px 20px;
+    display: inline-block;
+    border-radius: 3px;
+    font-weight: 600;
+    font-family: sans-serif;
+    cursor: pointer;
+    user-select: none;  
+}
+
+.btn.active {
+    background: #27ae60;
+}
+
+
+.site-content  {
+    max-width: 1000px;
+    display: block;
+    margin: 0 auto;
+}
+
+.site-content .card-box {
+    display: block;
+    margin: 0 auto;
+    max-width: 300px;
+    height: 300px;
+    margin-top: 40px;
+}
+.site-content .card-box.active .card{
+    visibility: visible;
+    opacity: 1;
+    transform: none;    
+}
+
+.site-content .card-box .card {
+    max-width: 300px;
+    height: 300px;
+    background-image: url('../img/background-beans-black-coffee-867470.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    transform: translateY(-50px) scale(0.8) rotate(5deg);
+    transition: all 0.2s ease-in-out;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.site-content .btn-box {
+    width: 300px;
+    margin: 0 auto;
+    margin-top: 40px;
+    
+}
+
+/* .site-content .btn-box * {
+    background: #f00;
+    height: 40px;
+    width: 40px;
+    display: block;
+} */
+
