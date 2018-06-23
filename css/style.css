@@ -1,81 +1,95 @@
-html, body, h1, h2, h3, h4 ,h5 , h6, p, a, ul, li {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    text-decoration: none;
-    color: #101010;
-    font-family: sans-serif;
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  color: #101010;
+  text-decoration: none;
+  list-style: none;
+  font-size: 13px;
+  font-family: sans-serif;
 }
-
-* {   /* абсолютно всё */
-    outline: none;
+* {
+  outline: none;
 }
-
-/* conmponents */
+.site-content {
+  padding: 0 15px;
+}
 .btn {
-    font-size: 13px;
-    line-height: 1.6;
-    background-color: #101010;
-    color: #fff;
-    padding: 12px 20px;
-    display: inline-block;
-    border-radius: 3px;
-    font-weight: 600;
-    font-family: sans-serif;
-    cursor: pointer;
-    user-select: none;  
+  font-size: 13px;
+  background: #2980b9;
+  color: #fff;
+  padding: 12px 20px;
+  margin-top: 30px;
+  display: inline-block;
+  user-select: none;
+  cursor: pointer;
+  border-radius: 3px;
 }
-
-.btn.active {
-    background: #27ae60;
+.modal-window {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  visibility: hidden;
+  opacity: 0;
+  transition: all 0.2s ease-in-out;
 }
-
-
-.site-content  {
-    max-width: 1000px;
-    display: block;
-    margin: 0 auto;
+.modal-window.active {
+  visibility: visible;
+  opacity: 1;
 }
-
-.site-content .card-box {
-    display: block;
-    margin: 0 auto;
-    max-width: 300px;
-    height: 300px;
-    margin-top: 40px;
+.modal-window.active .modal-box {
+  transform: translate(-50%, -50%);
 }
-.site-content .card-box.active .card{
-    visibility: visible;
-    opacity: 1;
-    transform: none;    
+.modal-window .modal-box {
+  transition: all 0.2s ease-in-out;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background-color: #ecf0f1;
+  padding: 30px;
+  max-width: 500px;
+  width: 100%;
+  transform: translate(-50%, calc(-50% - 50px)) translateY(-50px) scale(0.8);
 }
-
-.site-content .card-box .card {
-    max-width: 300px;
-    height: 300px;
-    background-image: url('../img/background-beans-black-coffee-867470.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    transform: translateY(-50px) scale(0.8) rotate(5deg);
-    transition: all 0.2s ease-in-out;
-    visibility: hidden;
-    opacity: 0;
+.btn-container {
+  margin: 15px;
 }
-
-.site-content .btn-box {
-    width: 300px;
-    margin: 0 auto;
-    margin-top: 40px;
-    
+.cell-option {
+  margin: 0 auto;
+  visibility: visible;
+  opacity: 1;
+  transition: all 1s ease-in-out;
+  height: 40px;
+  width: 40px;
+  display: block;
 }
-
-/* .site-content .btn-box * {
-    background: #f00;
-    height: 40px;
-    width: 40px;
-    display: block;
-} */
-
+.cell-option.pre-animate {
+  visibility: hidden;
+  opacity: 0;
+}
+.cell-option.left-right {
+  transform: translateX(50px);
+}
+.cell-option.right-left {
+  transform: translateX(-50px);
+}
+.cell-option.top-bottom {
+  transform: translateY(-50px);
+}
+.cell-option.bottom-top {
+  transform: translateY(50px);
+}
