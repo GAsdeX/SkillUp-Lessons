@@ -76,6 +76,8 @@ li {
 }
 .accordeon-wrapper .top-bar {
   display: block;
+  overflow: auto;
+  background-color: #2c3e50;
 }
 .accordeon-wrapper .top-bar li {
   float: left;
@@ -83,9 +85,18 @@ li {
 }
 .accordeon-wrapper .top-bar li a {
   background-color: #2c3e50;
+  color: #ecf0f1;
   display: inline-block;
   padding: 12px 20px;
 }
 .accordeon-wrapper .top-bar li a.active {
   background-color: #ecf0f1;
+  color: #2c3e50;
+}
+.accordeon-wrapper .content-bar .entry-box {
+  padding: 15px;
+  display: none;
+}
+.accordeon-wrapper .content-bar .entry-box.active {
+  display: block;
 }
