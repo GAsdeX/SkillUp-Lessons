@@ -66,45 +66,78 @@
 .site-content {
     padding: 0 15px;
 }
- 
-.accordeon-wrapper {
-    margin-top: 30px;
-    width: 100%;
-    max-width: 600px;
-    background-color: #ecf0f1;
+
+.slider-box {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     
-    .top-bar {
-        display: block;
-        overflow: auto;
-        background-color: #2c3e50;        
+    .btn-container {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 50%;
+        top: 50%;
+        transform: translateY(-50%);
+        position: absolute;
+        z-index: 10;
+        background-color: #eee;
+        
+        &.next {
+            right: 0;
+            transform: translateY(-50%) rotate(180deg);        
+            
+        }
+        &.prev {
+            left: 0;    
+        }
+        &, & > * {
+            margin: 0;
+            padding: 0;
+        }
+        .btn {
+            border-radius: 0;
+            z-index: 10;
+            height: 100px;
+            width: 50px;
+            -webkit-mask-image: url(../img/left-arrow.svg);
+            -webkit-mask-repeat: no-repeat;
+            -webkit-mask-size: 50%;
+            -webkit-mask-position: center;
+            -webkit-mask-repeat: url(../img/left-arrow.svg);
+            -webkit-mask-image: url(../img/left-arrow.svg);
+    
+        }
+    }
+    
+    .slider-list {
+        background-color: #222;
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
 
-        li {
-            float: left;
-            display: block;
+        .slide {
+            opacity: 0;
+            visibility: hidden;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            transition: all 0.3s ease-in-out;   
 
-            a {
-                background-color: #2c3e50;
-                color: #ecf0f1;
-                display: inline-block;
-                padding: 12px 20px;
-
-                &.active {
-                    background-color: #ecf0f1;
-                    color: #2c3e50;
-                }
+            &.active {
+                opacity: 1;
+                visibility: visible;
             }
         }
     }
-    .content-bar {
-        .entry-box {
-            padding: 15px;
-            display: none;
-
-            &.active {
-                display: block;
-            }
-        }
-    } 
 }
 
  

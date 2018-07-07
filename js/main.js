@@ -1,36 +1,39 @@
 (function(){
-    var topBarTabs  = document.querySelectorAll('[data-switch-accordeon]');  // Object
-    var contentBars = document.querySelectorAll('.entry-box'); // Object
+    var slides = document.querySelectorAll('.slide');
+    var button = document.querySelectorAll('.slider-box .btn-container');
 
-    var removeClass = function(element, className) {
-        Object.values(element).map(function(el, index){
-            el.classList.remove(className);
-        })
+    console.log(slides)
+    console.log(button)
+
+    var currentSlide = 1;
+
+    function setSlide() {
+        slides
     }
 
+    Object.values(button).map(function(el, index) {
+        el.addEventListener('click', function slideController(e, slide) {
+            var buttonClasses = Object.values(this.classList);
 
-    Object.values(topBarTabs).map(function(el, index){
-        el.addEventListener('click', activateTab);
-
-        function activateTab(e) {
-            console.log(this.classList);
-            console.log(index);
-
-            removeClass(topBarTabs, 'active');            
-            this.classList.add('active');
-
-            removeClass(contentBars, 'active');                        
-            Object.values(contentBars)[index].classList.add('active')
-        }
-    })
-
-
-
-    removeClass(topBarTabs, 'active');           
-    Object.values(topBarTabs)[0].classList.add('active')
-
-    removeClass(contentBars, 'active');                        
-    Object.values(contentBars)[0].classList.add('active')
-
-    
+            if (currentSlide >= 1 || currentSlide <= Object.values(slides).length) {
+                
+                if (buttonClasses.indexOf('next') != -1) {
+                    if (currentSlide != Object.values(slides).length) {
+                        currentSlide++;                        
+                    }
+                } else {
+                    if (currentSlide != 1) {
+                        currentSlide--;
+                    }
+                }
+                
+                Object.values(slides).map(function(el) {
+                    el.classList.remove('active');
+                });
+                Object.values(slides)[currentSlide - 1].classList.add('active');
+            }
+            
+        })
+    });
+    Object.values(slides)[0].classList.add('active');
 })();
